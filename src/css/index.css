@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  input,
+  button {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  /* ── Page structure ── */
+  .app-page {
+    @apply min-h-screen flex flex-col bg-white font-sans;
+  }
+
+  .main-center {
+    @apply flex-1 flex flex-col items-center justify-center px-5 py-[60px];
+  }
+
+  .main-top {
+    @apply flex-1 flex flex-col items-center px-5 py-[60px];
+  }
+
+  .form-card {
+    @apply w-full max-w-form flex flex-col items-center;
+  }
+
+  /* ── Site header ── */
+  .site-header {
+    @apply h-header bg-white border-b border-input-border sticky top-0 z-[100];
+  }
+
+  .header-inner {
+    @apply max-w-content mx-auto h-full flex items-center justify-between;
+  }
+
+  .nav-btn {
+    @apply h-10 px-2 text-base font-normal text-text-gray bg-transparent border-none
+           cursor-pointer flex items-center transition-colors hover:text-text-dark;
+  }
+
+  /* ── Tabs (마이페이지) ── */
+  .tab-btn-base {
+    @apply flex-1 h-14 cursor-pointer text-[15px] font-medium bg-white
+           border-t-0 border-x-0 border-b-2 border-solid;
+  }
+
+  .tab-btn-active {
+    @apply text-text-dark border-primary;
+  }
+
+  .tab-btn-inactive {
+    @apply text-text-gray border-transparent;
+  }
+
+  /* ── Role tabs (회원가입 / 매장등록) ── */
+  .role-row {
+    @apply w-full flex border border-input-border rounded-lg overflow-hidden;
+  }
+
+  .role-btn-base {
+    @apply flex-1 h-14 cursor-pointer text-[15px]
+           border-t-0 border-x-0 border-b-2 border-solid;
+  }
+
+  .role-btn-active {
+    @apply font-medium text-primary bg-[#eff6ff] border-primary;
+  }
+
+  .role-btn-inactive {
+    @apply font-normal text-text-gray bg-white border-transparent;
+  }
+
+  /* ── Form fields ── */
+  .field-group {
+    @apply pt-5 flex flex-col gap-2;
+  }
+
+  .field-label {
+    @apply text-[15px] font-medium text-text-dark leading-6;
+  }
+
+  .label-row {
+    @apply flex items-center gap-1;
+  }
+
+  .label-optional {
+    @apply text-sm text-text-muted leading-6;
+  }
+
+  /* ── Inputs ── */
+
+  /* 흰 배경 + 테두리 — 포커스 시 파란 테두리 + shadow */
+  .form-input {
+    @apply w-full h-input px-3 text-sm text-text-dark border border-input-border
+           rounded-lg outline-none bg-white box-border
+           focus:border-input-focus-border focus:shadow-focus;
+  }
+
+  /* 회색 배경 + 테두리 없음 — disabled 스타일 */
+  .form-input-disabled {
+    @apply w-full h-input px-3 text-sm text-text-muted border-none
+           rounded-lg outline-none bg-input-disabled-bg box-border;
+  }
+
+  /* 흰 배경 래퍼 (space-between) — 내부 input 포커스 시 파란 테두리 */
+  .input-wrap {
+    @apply w-full h-input flex items-center justify-between px-3
+           border border-input-border rounded-lg bg-white box-border
+           focus-within:border-input-focus-border focus-within:shadow-focus;
+  }
+
+  /* 회색 배경 래퍼 (space-between) — 테두리 없음 */
+  .input-wrap-gray {
+    @apply w-full h-input flex items-center justify-between px-3
+           rounded-lg bg-input-disabled-bg box-border;
+  }
+
+  /* 래퍼 안쪽 input — 편집 가능 (어두운 텍스트) */
+  .inner-input {
+    @apply flex-1 border-none outline-none text-sm text-text-dark bg-transparent;
+  }
+
+  /* 래퍼 안쪽 input — 회색 텍스트 */
+  .inner-input-gray {
+    @apply flex-1 border-none outline-none text-sm text-text-muted bg-transparent;
+  }
+
+  /* 인라인 액션 버튼 (변경, 인증, 확인 등) */
+  .action-btn {
+    @apply text-sm font-normal text-link bg-transparent border-none cursor-pointer shrink-0 p-0;
+  }
+
+  /* ── Buttons ── */
+
+  .btn-primary {
+    @apply w-full h-btn text-base font-semibold text-white bg-primary border-none
+           rounded-lg cursor-pointer transition-colors hover:bg-primary-hover;
+  }
+
+  .btn-ghost {
+    @apply h-10 px-3 text-base font-normal text-text-gray bg-transparent border-none
+           rounded-lg cursor-pointer transition-colors hover:bg-ghost-hover;
+  }
+
+  .btn-cta {
+    @apply h-10 px-3 text-base font-semibold text-white bg-cta-dark border-none
+           rounded-lg cursor-pointer transition-colors hover:bg-[#034a9e];
+  }
+
+  .submit-wrap {
+    @apply pt-5;
+  }
+
+  /* ── Avatar dropdown (PrivateHeader) ── */
+  .avatar-dropdown {
+    @apply absolute top-11 right-0 bg-white border border-input-border rounded-lg
+           shadow-[0_4px_16px_rgba(0,0,0,0.08)] w-[240px] z-[200] overflow-hidden;
+  }
+
+  .avatar-dropdown-item {
+    @apply block w-full px-4 py-2 text-base font-normal text-text-dark
+           cursor-pointer bg-transparent border-none text-left
+           transition-colors hover:bg-ghost-hover;
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    @apply bg-footer-bg py-10 font-sans;
+  }
+
+  .footer-inner {
+    @apply max-w-content mx-auto;
+  }
+
+  .footer-link {
+    @apply text-sm font-medium text-text-dark no-underline cursor-pointer;
+  }
+}

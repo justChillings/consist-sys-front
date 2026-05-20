@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignIn from './pages/sign-in.jsx';
-import SignUp from './pages/sign-up.jsx';
-import CompleteSignUp from './pages/complete-sign-up.jsx';
-import FindPassword from './pages/find-password.jsx';
-import CompleteFindPassword from './pages/complete-find-password.jsx';
-import MainPage from './pages/main-page.jsx';
-import Terms from './pages/terms.jsx';
-import MyPage from './pages/my-page.jsx';
-import MyMarket from './pages/my-market.jsx';
-import RegisterMarket from './pages/register-market.jsx';
+import SignIn from './pages/sign-in';
+import SignUp from './pages/sign-up';
+import CompleteSignUp from './pages/complete-sign-up';
+import FindPassword from './pages/find-password';
+import CompleteFindPassword from './pages/complete-find-password';
+import MainPage from './pages/main-page';
+import Terms from './pages/terms';
+import MyPage from './pages/my-page';
+import MyMarket from './pages/my-market';
+import RegisterMarket from './pages/register-market';
+import RegisterStaff from './pages/register-staff';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/my-page" element={<MyPage />} />
         <Route path="/my-market" element={<MyMarket />} />
         <Route path="/register-market" element={<RegisterMarket />} />
+        <Route path="/register-staff" element={<RegisterStaff />} />
       </Routes>
     </BrowserRouter>
   );
